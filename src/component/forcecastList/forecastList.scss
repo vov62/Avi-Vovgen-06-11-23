@@ -1,0 +1,22 @@
+.forecast-list {
+  margin-top: 10px;
+  //   border: 2px solid #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.forecast-title {
+  h2 {
+    color: #fff;
+    font-weight: 300;
+    font-size: 60px;
+  }
+}
+.forecast-wrapper {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  background-color: 1px solid red;
+}
