@@ -23,11 +23,11 @@ const ForecastLIst = () => {
 
       <div className="forecast-wrapper">
         {fiveDayForecast.length > 0 ? (
-          fiveDayForecast.map((item) => (
+          fiveDayForecast.map((item, idx) => (
             <ForecastItem
               item={item}
               key={item.dt}
-              forecastDays={forecastDays}
+              forecastDays={forecastDays[idx]}
             />
           ))
         ) : (

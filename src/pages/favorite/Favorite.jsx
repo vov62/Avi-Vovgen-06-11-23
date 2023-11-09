@@ -1,33 +1,33 @@
 import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
+import "./favorite.scss";
+import FavoriteCard from "./FavoriteCard";
 
 const Favorite = () => {
   const favorites = useSelector((state) => state.data.favorites);
-  // console.log(favorites);
+
+  console.log(favorites);
+
+  // const [favLocal, setFavLocal] = useState({});
+
+  // useEffect(() => {
+  //   setFavLocal(JSON.parse(localStorage.getItem("favorite")) || []);
+  // }, []);
+
+  // console.log(favLocal);
 
   return (
-    <div>
-      <div
-        style={{
-          // display: "flex",
-          // justifyContent: "center",
-          // alignItems: "center",
-          border: "#000 1px solid",
-          // height: "100vh",
-        }}
-      >
-        {favorites.length > 0 ? (
-          <ul>
-            {favorites.map((favorite) => (
-              <div className="card" key={favorite.id}>
-                <li>
-                  <p className="card-top-city-details">{favorite.name}</p>
-                  <p>{favorite.weather[0].description}</p>
-                  <p>{Math.round(favorite.main.temp)}&#8451;</p>
-                  {/* Add more details as needed */}
-                </li>
-              </div>
-            ))}
-          </ul>
+    <div className="favorite-container">
+      <div className="favorite-goBack-btn">
+        <KeyboardBackspaceIcon />
+      </div>
+      <h1>Favorite City</h1>
+      <div className="favorite-wrapper">
+        {favorites ? (
+          <div className="card-container">
+            <FavoriteCard data={favorites} />
+          </div>
         ) : (
           <p>No favorites added</p>
         )}

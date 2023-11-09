@@ -15,7 +15,7 @@ const SearchBox = () => {
       const englishPattern = /^[A-Za-z\s]+$/;
       englishPattern.test(textValue)
         ? dispatch(DATA_FETCH_REQUESTED(textValue))
-        : console.log("Please enter only English characters");
+        : alert("Please enter only English characters");
     }
     dispatch(RESET_SEARCH());
   };

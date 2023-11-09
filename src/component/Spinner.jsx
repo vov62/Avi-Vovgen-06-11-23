@@ -1,25 +1,19 @@
 import ClipLoader from "react-spinners/ClipLoader";
 
-export default function Spinner() {
+const Spinner = () => {
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        width: "100%",
-        height: "100%",
-      }}
-    >
-      <ClipLoader
+    <>
+      <div
         style={{
-          width: "50px",
-          height: "50px",
+          position: "absolute",
+          top: "30%",
+          left: "45%",
         }}
-        animation="border"
-        variant="light"
-        color="#000"
-      ></ClipLoader>
-    </div>
+      >
+        <ClipLoader color="#000" size={50} />
+      </div>
+    </>
   );
-}
+};
+
+export default Spinner;

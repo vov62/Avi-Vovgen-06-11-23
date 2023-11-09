@@ -27,10 +27,18 @@ const dataSlice = createSlice({
     // ADD_TO_FAVORITE: (state, action) => {
     //   state.favorites.push(action.payload);
     // }
-    ADD_TO_FAVORITE: (state, action) => {
+    ADD_TO_FAVORITES: (state, action) => {
       return {
         ...state,
         favorites: [...state.favorites, { ...action.payload }],
+      };
+    },
+    REMOVE_FROM_FAVORITES: (state, action) => {
+      return {
+        ...state,
+        favorites: state.favorites.filter(
+          (favorites) => favorites.id !== action.payload.id
+        ),
       };
     },
   },
@@ -41,7 +49,8 @@ export const {
   DATA_FETCH_FAILED,
   DATA_FETCH_SUCCEED,
   FORECAST_DATA_FETCH_SUCCEED,
-  ADD_TO_FAVORITE,
+  ADD_TO_FAVORITES,
+  REMOVE_FROM_FAVORITES,
 } = dataSlice.actions;
 
 export const { actions, reducer } = dataSlice;

@@ -18,7 +18,7 @@ const ForecastItem = ({ item, forecastDays }) => {
     <>
       <div className="forecast-card">
         <div className="forecast-card-desc">
-          {/* <h3>{forecastDays}</h3> */}
+          <h3>{forecastDays}</h3>
           <h2>{description}</h2>
 
           <div className="forecast-icon">
