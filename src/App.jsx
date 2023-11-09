@@ -6,19 +6,17 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <>
-      <BrowserRouter>
-        <header>
-          <Header />
-        </header>
-        <main>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/favorite" element={<Favorite />} />
-          </Routes>
-        </main>
-      </BrowserRouter>
-    </>
+    <BrowserRouter>
+      <header>
+        <Header />
+      </header>
+      <main>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/favorite" element={<Favorite />} />
+        </Routes>
+      </main>
+    </BrowserRouter>
   );
 }
 
