@@ -10,12 +10,11 @@
     li {
       width: 100%;
       color: var(--text-gray);
-      padding: 5px 0;
-      border-bottom: 1px solid #000;
+      padding: 10px 15px;
       cursor: pointer;
 
       &:hover {
-        background-color: teal;
+        background-color: #efefef;
         color: #000;
       }
     }

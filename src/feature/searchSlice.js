@@ -2,7 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   cityName: "tel aviv",
-  cord: {},
 };
 
 const searchSlice = createSlice({
@@ -13,15 +12,11 @@ const searchSlice = createSlice({
       return { ...state, cityName: action.payload };
     },
     RESET_SEARCH: (state) => {
-      state.cityName = "";
-    },
-    SET_CITY_CODE: (state, action) => {
-      state.cord = action.payload;
+      return { ...state, cityName: "" };
     },
   },
 });
 
-export const { UPDATE_SEARCH, RESET_SEARCH, SET_CITY_CODE } =
-  searchSlice.actions;
+export const { UPDATE_SEARCH, RESET_SEARCH } = searchSlice.actions;
 
 export const { actions, reducer } = searchSlice;

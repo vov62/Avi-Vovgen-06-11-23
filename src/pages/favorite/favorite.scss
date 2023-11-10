@@ -1,14 +1,16 @@
 .favorite-container {
-  //   height: 100vh; /* 100% of the viewport height */
-  //   width: 100%;
   padding: 30px;
-  //   border: 2px solid #000;
-  //   background-color: red;
-  //   text-align: center;
 
   .favorite-goBack-btn {
     color: #fff;
     cursor: pointer;
+
+    .favorite-goBack-icon {
+      &:hover {
+        transition: all 0.3s ease;
+        transform: scale(1.5);
+      }
+    }
   }
 
   h1 {
@@ -19,15 +21,13 @@
   }
 
   .favorite-wrapper {
-    // border: 2px solid yellow;
-    padding: 20px; /* Adjust as needed */
-    // height: 100%;
+    padding: 20px;
 
-    .card-container {
-      //   background-color: teal;
+    .favorite-card-container {
       display: flex;
       justify-content: flex-start;
       align-items: center;
+      flex-wrap: wrap;
       gap: 10px;
       height: 100%;
     }
@@ -40,6 +40,16 @@
 
       p {
         font-size: 15px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .favorite-container {
+    .favorite-wrapper {
+      .favorite-card-container {
+        justify-content: center;
       }
     }
   }

@@ -3,22 +3,14 @@ import {
   DATA_FETCH_REQUESTED,
   DATA_FETCH_FAILED,
   DATA_FETCH_SUCCEED,
-  FORECAST_DATA_FETCH_SUCCEED,
 } from "../../feature/fetchDataSlice";
 import fetchCityData from "../../api/api";
 
 function* fetchData(actions) {
-  // actions.payload has my search value
-  //   debugger;
   try {
     const cityDataRes = yield call(fetchCityData, actions.payload);
 
-    yield put({ type: DATA_FETCH_SUCCEED, payload: cityDataRes.cityData });
-
-    yield put({
-      type: FORECAST_DATA_FETCH_SUCCEED,
-      payload: cityDataRes.forecastData,
-    });
+    yield put({ type: DATA_FETCH_SUCCEED, payload: cityDataRes });
   } catch (error) {
     yield put({ type: DATA_FETCH_FAILED, payload: error.message });
   }

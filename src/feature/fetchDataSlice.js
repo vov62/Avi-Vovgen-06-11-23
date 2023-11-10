@@ -13,33 +13,45 @@ const dataSlice = createSlice({
   initialState,
   reducers: {
     DATA_FETCH_REQUESTED: (state) => {
-      return { ...state, isLoading: true };
+      return { ...state, isLoading: true, error: null };
     },
     DATA_FETCH_FAILED: (state, action) => {
       return { ...state, isLoading: false, error: action.payload };
     },
     DATA_FETCH_SUCCEED: (state, action) => {
-      return { ...state, isLoading: false, data: action.payload };
+      return {
+        ...state,
+        isLoading: false,
+        data: action.payload.cityData,
+        forecastData: action.payload.forecastData,
+      };
     },
     FORECAST_DATA_FETCH_SUCCEED: (state, action) => {
       return { ...state, forecastData: action.payload };
     },
-    // ADD_TO_FAVORITE: (state, action) => {
-    //   state.favorites.push(action.payload);
-    // }
+    // ADD_TO_FAVORITES: (state, action) => {
+    //   return {
+    //     ...state,
+    //     favorites: [...state.favorites, { ...action.payload }],
+    //   };
+    // },
+    // REMOVE_FROM_FAVORITES: (state, action) => {
+    //   return {
+    //     ...state,
+    //     favorites: state.favorites.filter(
+    //       (favorites) => favorites.id !== action.payload.id
+    //     ),
+    //   };
+    // },
     ADD_TO_FAVORITES: (state, action) => {
-      return {
-        ...state,
-        favorites: [...state.favorites, { ...action.payload }],
-      };
+      state.favorites.push(action.payload);
+      localStorage.setItem("favorites", JSON.stringify(state.favorites));
     },
     REMOVE_FROM_FAVORITES: (state, action) => {
-      return {
-        ...state,
-        favorites: state.favorites.filter(
-          (favorites) => favorites.id !== action.payload.id
-        ),
-      };
+      state.favorites = state.favorites.filter(
+        (city) => city.id !== action.payload.id
+      );
+      localStorage.setItem("favorites", JSON.stringify(state.favorites));
     },
   },
 });

@@ -9,6 +9,7 @@ import AutocompleteSuggestions from "../autocomplete/AutoComplete";
 const SearchBox = () => {
   const dispatch = useDispatch();
   const textValue = useSelector((state) => state.search.cityName);
+  // console.log(textValue);
 
   const handleSearch = () => {
     if (textValue) {
@@ -27,9 +28,10 @@ const SearchBox = () => {
   };
 
   useEffect(() => {
-    // debugger;
-    dispatch(DATA_FETCH_REQUESTED(textValue));
-    dispatch(RESET_SEARCH());
+    if (textValue) {
+      dispatch(DATA_FETCH_REQUESTED(textValue));
+      dispatch(RESET_SEARCH());
+    }
   }, []);
 
   return (
@@ -47,7 +49,6 @@ const SearchBox = () => {
             }
           }}
         />
-        {/* <button onClick={handleSearch}>Search</button> */}
       </div>
 
       <div>

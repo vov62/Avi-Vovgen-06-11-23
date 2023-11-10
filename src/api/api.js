@@ -18,7 +18,7 @@ const fetchCityData = async (city) => {
       }&units=metric`
     );
 
-    return { cityData: cityDataRes.data, forecastData: forecastDataRes.data };
+    return { cityData: cityDataRes?.data, forecastData: forecastDataRes?.data };
   } catch (error) {
     return error;
   }

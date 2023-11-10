@@ -11,14 +11,8 @@ const HomePage = () => {
           <SearchBox />
         </div>
         <section className="card-wrapper">
-          {/* להחליף בהמשך לבדוק אם זה לא ריק */}
-          {/* {cityWeather ? <Card data={cityWeather} /> : <p>No data available</p>} */}
-          {/* <Card data={cityWeather} /> */}
-          {/* <Card /> */}
-
           <CityWeather />
         </section>
-
         <section>
           <ForecastLIst />
         </section>
