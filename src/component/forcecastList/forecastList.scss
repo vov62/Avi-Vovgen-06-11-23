@@ -19,5 +19,18 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  background-color: 1px solid red;
+}
+
+@media only screen and (max-width: 768px) {
+  // .forecast-wrapper {
+  //   // justify-content: center;
+  //   // align-items: center;
+  // }
+}
+
+@media only screen and (max-width: 600px) {
+  .forecast-wrapper {
+    justify-content: center;
+    align-items: center;
+  }
 }

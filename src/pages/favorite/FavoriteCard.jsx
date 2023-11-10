@@ -14,7 +14,7 @@ const FavoriteCard = ({ data }) => {
         data &&
         data.map((item) => (
           <div key={item.id}>
-            <div className="card">
+            <div className="forecast-card">
               <p className="card-top-city-details">{item.name}</p>
               <img src={`${iconUrl}${item.weather[0].icon}.png`} alt="icon" />
               <p>{item.weather[0].description}</p>

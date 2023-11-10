@@ -1,61 +1,30 @@
-import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
-// import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteOutlined";
-import { useSelector, useDispatch } from "react-redux";
-import {
-  ADD_TO_FAVORITES,
-  REMOVE_FROM_FAVORITES,
-} from "../../feature/fetchDataSlice";
-
+import { useSelector } from "react-redux";
 import Spinner from "../Spinner";
-import { toast } from "react-toastify";
 import "./card.scss";
 
 const Card = () => {
-  const dispatch = useDispatch();
-
   const cityData = useSelector((state) => state.data);
+  const { isLoading, data } = cityData;
+  // console.log(data);
 
-  const { isLoading, data, error, favorites } = cityData;
+  // const date = data?.timezone;
 
-  if (!data) {
-    return <p>Data is incomplete.</p>;
-    // error
-  }
+  // const utcTime = new Date(data.dt * 1000);
+  // const localTime = new Date(utcTime.getTime() + date * 1000);
+  // // console.log("Local Time:", localTime.toLocaleString());
+
+  // // Formatting local time
+  // const timeOptions = { hour: "2-digit", minute: "2-digit", hour12: true };
+  // const formattedTime = localTime.toLocaleTimeString(undefined, timeOptions);
+  // console.log("Formatted Time:", formattedTime);
+
   const { name, weather, main, wind } = data;
 
   if (!name || !weather || weather.length === 0 || !main || !wind) {
-    return <p>loading...</p>;
+    return <Spinner />;
   }
+
   const iconUrl = `http://openweathermap.org/img/w/${weather[0].icon}.png`;
-
-  const handleFavorite = () => {
-    dispatch(ADD_TO_FAVORITES(data));
-
-    // localStorage.setItem("favorite", JSON.stringify(data));
-
-    toast.success("🦄 city add successfully!", {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      progress: undefined,
-      theme: "dark",
-    });
-  };
-  const handleRemove = () => {
-    dispatch(REMOVE_FROM_FAVORITES(data));
-    // localStorage.removeItem("favorite");
-    toast.error("🦄 remove done successfully!", {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      progress: undefined,
-      theme: "dark",
-    });
-  };
 
   return (
     <>
@@ -70,11 +39,10 @@ const Card = () => {
                 <p className="card-city-weather-desc">
                   {weather[0].description}
                 </p>
-                <p className="card-city-weather-desc">14:30PM</p>
+                <p className="card-city-weather-desc">10:00PM</p>
               </div>
               <img src={iconUrl} alt="sun" className="card-weather-icon" />
             </div>
-
             <div className="card-bottom">
               <h2>{Math.round(main.temp)}&#8451;</h2>
               <div className="card-bottom-city-details">
@@ -92,28 +60,6 @@ const Card = () => {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="card-btn">
-            {/* <button className="add-to-fav-btn" onClick={handleFavorite}>
-          <FavoriteBorderOutlinedIcon />
-          add to favorite
-        </button> */}
-            {/* <button className="remove-btn">
-          <FavoriteBorderOutlinedIcon className="remove_icon" />
-          remove from favorite
-        </button> */}
-
-            {favorites.some((v) => v.id === data.id) ? (
-              <button className="remove-btn" onClick={handleRemove}>
-                <FavoriteBorderOutlinedIcon className="remove_icon" />
-                remove from favorite
-              </button>
-            ) : (
-              <button className="add-to-fav-btn" onClick={handleFavorite}>
-                <FavoriteBorderOutlinedIcon />
-                add to favorite
-              </button>
-            )}
           </div>
         </>
       )}

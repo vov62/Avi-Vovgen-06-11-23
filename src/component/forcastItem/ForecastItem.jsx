@@ -19,15 +19,15 @@ const ForecastItem = ({ item, forecastDays }) => {
       <div className="forecast-card">
         <div className="forecast-card-desc">
           <h3>{forecastDays}</h3>
-          <h2>{description}</h2>
 
-          <div className="forecast-icon">
-            <img src={iconUrl} alt="icon" />
-          </div>
+          <img src={iconUrl} alt="icon" />
+
+          <h2>{description}</h2>
 
           <div className="forecast-temp">
             <p>
-              {Math.round(tempMax)}&deg; <span>{Math.round(tempMin)}&deg;</span>
+              {Math.round(tempMax)}&deg; - {""}
+              <span>{Math.round(tempMin)}&deg;</span>
             </p>
           </div>
         </div>

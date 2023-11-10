@@ -1,12 +1,7 @@
+import CityWeather from "../../component/cityWeather/CityWeather";
 import ForecastLIst from "../../component/forcecastList/forecastLIst";
 import SearchBox from "../../component/header/searchbox/SearchBox";
-import Card from "../../component/weatherCard/Card";
-// import icon from "../../assets/icons/01d.png";
-// import rainicon from "../../assets/icons/10n.png";
-// import cityData from "../../../city.json";
-
 import "./homePage.scss";
-import { useSelector } from "react-redux";
 
 const HomePage = () => {
   return (
@@ -21,7 +16,7 @@ const HomePage = () => {
           {/* <Card data={cityWeather} /> */}
           {/* <Card /> */}
 
-          <Card />
+          <CityWeather />
         </section>
 
         <section>

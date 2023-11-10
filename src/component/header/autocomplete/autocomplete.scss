@@ -1,0 +1,29 @@
+.autocomplete-container {
+  margin-top: 5px;
+  ul {
+    border-radius: 5px;
+
+    padding: 10px;
+    background-color: #fff;
+    text-align: center;
+
+    li {
+      width: 100%;
+      color: var(--text-gray);
+      padding: 5px 0;
+      border-bottom: 1px solid #000;
+      cursor: pointer;
+
+      &:hover {
+        background-color: teal;
+        color: #000;
+      }
+    }
+  }
+
+  .autocomplete-container-error {
+    color: red;
+    text-align: center;
+    font-weight: 600;
+  }
+}

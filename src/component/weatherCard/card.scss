@@ -5,6 +5,7 @@
   width: 450px;
   //   background-color: var(--text-color);
   background-color: #333;
+  // background-color: #f6f6f8;
 
   .card-top {
     display: flex;
@@ -72,44 +73,16 @@
     }
   }
 }
-.card-btn {
-  .add-to-fav-btn {
-    padding: 12px 20px;
-    color: #fff;
-    font-size: 18px;
-    background-color: #1890ff;
-    border-color: #1890ff;
-    border-radius: 15px;
-    cursor: pointer;
-    text-transform: capitalize;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
 
-    &:hover {
-      background-color: #333;
-    }
+@media only screen and (max-width: 600px) {
+  .card {
+    width: 380px;
   }
 
-  button.remove-btn {
-    background-color: red;
-    padding: 12px 20px;
-    font-size: 18px;
-    color: #fff;
-    border-color: #1890ff;
-    border-radius: 15px;
-    cursor: pointer;
-    text-transform: capitalize;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-
-    .remove_icon {
-      fill: red;
-      stroke: #000;
-      stroke-width: 1;
+  .card-btn {
+    .add-to-fav-btn,
+    button.remove-btn {
+      font-size: 16px;
     }
   }
 }

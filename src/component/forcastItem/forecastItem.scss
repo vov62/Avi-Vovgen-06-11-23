@@ -9,14 +9,21 @@
 
   .forecast-card-desc {
     h2 {
-      color: #fff !important;
-      font-weight: 400;
-      //   font-size: 24px;
+      color: lightgrey !important;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    img {
+      width: 100px;
+      height: 70px;
+      object-fit: cover;
     }
 
     .forecast-temp {
+      margin-top: 10px;
       span {
-        // color: var(--text-gray);
+        color: var(--text-gray);
       }
     }
   }
