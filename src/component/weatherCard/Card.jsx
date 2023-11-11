@@ -1,8 +1,11 @@
 import { useSelector } from "react-redux";
+import { CelsiusToFahrenheit } from "../../util/util";
 import "./card.scss";
 
 const Card = () => {
   const cityData = useSelector((state) => state.data.data);
+  const tempUnit = useSelector((state) => state.data.tempUnit);
+
   const { name, weather, main, wind, sys } = cityData;
   const iconUrl = `http://openweathermap.org/img/w/${weather[0].icon}.png`;
 
@@ -19,12 +22,12 @@ const Card = () => {
         <img src={iconUrl} alt="sun" className="card-weather-icon" />
       </div>
       <div className="card-bottom">
-        <h2>{Math.round(main.temp)}&#8451;</h2>
+        <h2>{CelsiusToFahrenheit(main.temp, tempUnit)}</h2>
         <div className="card-bottom-city-details">
           <h4>Details</h4>
           <div className="card-details">
             <h5>Feels Like</h5>
-            <span>{Math.round(main.feels_like)}&#8451;</span>
+            <span>{CelsiusToFahrenheit(main.feels_like, tempUnit)}</span>
             <h5>Wind</h5>
             <span>{wind.speed} m/s</span>
             <h5>Humidity</h5>

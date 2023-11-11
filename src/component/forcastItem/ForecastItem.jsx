@@ -1,18 +1,13 @@
+import { useSelector } from "react-redux";
+import { CelsiusToFahrenheit } from "../../util/util";
 import "./forecastItem.scss";
 
 const ForecastItem = ({ item, forecastDays }) => {
-  // console.log(item);
-
-  if (!item) {
-    return null; // or display an error message
-  }
-
-  const description = item.weather[0]?.description || "No Description";
+  const tempUnit = useSelector((state) => state.data.tempUnit);
+  const { main, weather } = item;
   const iconUrl =
-    `http://openweathermap.org/img/w/${item.weather[0]?.icon}.png` ||
+    `http://openweathermap.org/img/w/${weather[0]?.icon}.png` ||
     "default-icon.png";
-  const tempMax = item.main?.temp_max || 0;
-  const tempMin = item.main?.temp_min || 0;
 
   return (
     <>
@@ -22,12 +17,13 @@ const ForecastItem = ({ item, forecastDays }) => {
             <h3>{forecastDays}</h3>
           </div>
           <img src={iconUrl} alt="icon" />
+          <h4>{CelsiusToFahrenheit(main.temp, tempUnit)}</h4>
           <div className="forecast-temp">
-            <h2>{description}</h2>
+            <h2>{weather[0].description}</h2>
 
             <p>
-              {Math.round(tempMax)}&deg; - {""}
-              <span>{Math.round(tempMin)}&deg;</span>
+              {CelsiusToFahrenheit(main.temp_max, tempUnit)} - {""}
+              <span>{CelsiusToFahrenheit(main.temp_min, tempUnit)}</span>
             </p>
           </div>
         </div>

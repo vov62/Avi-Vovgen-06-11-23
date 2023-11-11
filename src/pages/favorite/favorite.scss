@@ -4,6 +4,13 @@
   .favorite-goBack-btn {
     color: #fff;
     cursor: pointer;
+    width: 40px;
+    height: 40px;
+    background-color: #053645;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     .favorite-goBack-icon {
       &:hover {
@@ -16,8 +23,8 @@
   h1 {
     text-align: center;
     text-decoration: underline;
-    color: var(--text-gray);
-    font-weight: 400;
+    font-weight: 500;
+    font-size: 40px;
   }
 
   .favorite-wrapper {

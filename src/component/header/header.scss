@@ -35,6 +35,29 @@
           height: 28px;
         }
       }
+      .temperature-toggle {
+        button {
+          width: 30px;
+          background-color: #053645;
+          font-size: 20px;
+          font-weight: 600;
+          color: #fff;
+          cursor: pointer;
+          border-radius: 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+
+      .darkMode-btn {
+        button {
+          cursor: pointer;
+
+          background-color: transparent;
+          color: #fff;
+        }
+      }
     }
     .navbar-menu-hamburger {
       display: none;

@@ -5,6 +5,7 @@ const initialState = {
   data: [],
   forecastData: [],
   favorites: [],
+  tempUnit: "celsius",
   error: "",
 };
 
@@ -40,6 +41,9 @@ const dataSlice = createSlice({
       );
       localStorage.setItem("favorites", JSON.stringify(state.favorites));
     },
+    TOGGLE_TEMP_UNIT: (state) => {
+      state.tempUnit = state.tempUnit === "celsius" ? "fahrenheit" : "celsius";
+    },
   },
 });
 
@@ -50,6 +54,7 @@ export const {
   FORECAST_DATA_FETCH_SUCCEED,
   ADD_TO_FAVORITES,
   REMOVE_FROM_FAVORITES,
+  TOGGLE_TEMP_UNIT,
 } = dataSlice.actions;
 
 export const { actions, reducer } = dataSlice;

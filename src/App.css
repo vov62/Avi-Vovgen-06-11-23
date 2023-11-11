@@ -25,10 +25,18 @@ button {
   border: none;
 }
 
+html,
 body {
   background: url('https://images.unsplash.com/photo-1621274403997-37aace184f49?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1');
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh;
   color: #eae6f2;
+}
+
+.dark {
+  background-color: #1f1f1f;
+  color: #ffffff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
 }

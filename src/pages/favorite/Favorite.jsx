@@ -12,7 +12,7 @@ const Favorite = () => {
       <div className="favorite-goBack-btn" onClick={() => navigate(-1)}>
         <KeyboardBackspaceIcon className="favorite-goBack-icon" />
       </div>
-      <h1>Favorite City</h1>
+      <h1>Favorites</h1>
       <div className="favorite-wrapper">
         {favorites.length > 0 ? (
           <div className="favorite-card-container">
