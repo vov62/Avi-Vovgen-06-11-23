@@ -29,20 +29,7 @@ const dataSlice = createSlice({
     FORECAST_DATA_FETCH_SUCCEED: (state, action) => {
       return { ...state, forecastData: action.payload };
     },
-    // ADD_TO_FAVORITES: (state, action) => {
-    //   return {
-    //     ...state,
-    //     favorites: [...state.favorites, { ...action.payload }],
-    //   };
-    // },
-    // REMOVE_FROM_FAVORITES: (state, action) => {
-    //   return {
-    //     ...state,
-    //     favorites: state.favorites.filter(
-    //       (favorites) => favorites.id !== action.payload.id
-    //     ),
-    //   };
-    // },
+
     ADD_TO_FAVORITES: (state, action) => {
       state.favorites.push(action.payload);
       localStorage.setItem("favorites", JSON.stringify(state.favorites));

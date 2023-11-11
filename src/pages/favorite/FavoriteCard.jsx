@@ -3,10 +3,10 @@ import { useNavigate, useParams } from "react-router-dom";
 
 const FavoriteCard = ({ data }) => {
   const iconUrl = `http://openweathermap.org/img/w/`;
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const selectDa = useSelector((state) => state.data);
-  const { isLoading } = selectDa;
+  const loadingState = useSelector((state) => state.data);
+  const { isLoading } = loadingState;
 
   const handleCardClick = (id) => {
     console.log(id);

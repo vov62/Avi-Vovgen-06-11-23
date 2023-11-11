@@ -17,10 +17,6 @@ const ForecastLIst = () => {
 
   return (
     <div className="forecast-list">
-      <div className="forecast-title">
-        <h2>5-day forecast</h2>
-      </div>
-
       <div className="forecast-wrapper">
         {fiveDayForecast.length > 0 ? (
           fiveDayForecast.map((item, idx) => (

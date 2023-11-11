@@ -5,6 +5,7 @@ import {
   REMOVE_FROM_FAVORITES,
 } from "../../feature/fetchDataSlice";
 import { toast } from "react-toastify";
+import "./favoriteBtn.scss";
 
 const FavoriteBtn = ({ city }) => {
   // const { data, favorites } = useSelector((state) => state.data);
@@ -15,7 +16,7 @@ const FavoriteBtn = ({ city }) => {
   const handleFavorite = () => {
     dispatch(ADD_TO_FAVORITES(city));
 
-    toast.success("🦄 city add successfully!", {
+    toast.success("city add successfully!", {
       position: "top-right",
       autoClose: 3000,
       hideProgressBar: false,
@@ -27,7 +28,7 @@ const FavoriteBtn = ({ city }) => {
   };
   const handleRemove = () => {
     dispatch(REMOVE_FROM_FAVORITES(city));
-    toast.error("🦄 remove done successfully!", {
+    toast.error("remove done successfully!", {
       position: "top-right",
       autoClose: 3000,
       hideProgressBar: false,
