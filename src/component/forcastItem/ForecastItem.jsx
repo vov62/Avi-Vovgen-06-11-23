@@ -20,7 +20,6 @@ const ForecastItem = ({ item, forecastDays }) => {
           <h4>{CelsiusToFahrenheit(main.temp, tempUnit)}</h4>
           <div className="forecast-temp">
             <h2>{weather[0].description}</h2>
-
             <p>
               {CelsiusToFahrenheit(main.temp_max, tempUnit)} - {""}
               <span>{CelsiusToFahrenheit(main.temp_min, tempUnit)}</span>

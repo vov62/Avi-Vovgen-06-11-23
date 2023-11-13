@@ -20,4 +20,6 @@ function* watchFetchData() {
   yield takeLatest(DATA_FETCH_REQUESTED, fetchData);
 }
 
-export default watchFetchData;
+//
+
+export { watchFetchData };

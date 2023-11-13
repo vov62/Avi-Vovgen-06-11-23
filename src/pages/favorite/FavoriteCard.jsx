@@ -1,37 +1,28 @@
 import { useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { CelsiusToFahrenheit } from "../../util/util";
 
 const FavoriteCard = ({ data }) => {
+  const tempUnit = useSelector((state) => state.data.tempUnit);
   const iconUrl = `http://openweathermap.org/img/w/`;
-  // const navigate = useNavigate();
-
-  const loadingState = useSelector((state) => state.data);
-  const { isLoading } = loadingState;
-
-  const handleCardClick = (id) => {
-    console.log(id);
-    // navigate(`/${id}`);
-  };
 
   return (
     <>
-      {isLoading ? (
-        <p>loading...</p>
-      ) : (
-        data &&
-        data.map((item) => (
-          <div key={item.id}>
-            <div
-              className="forecast-card"
-              onClick={() => handleCardClick(item.id)}
-            >
-              <p className="card-top-city-details">{item.name}</p>
-              <img src={`${iconUrl}${item.weather[0].icon}.png`} alt="icon" />
-              <p>{item.weather[0].description}</p>
-              <p>{Math.round(item.main.temp)}&#8451;</p>
+      {data ? (
+        <div key={data.id}>
+          <Link className="forecast-card">
+            <div className="forecast-card-desc">
+              <div className="forecast-card-day">{data.name}</div>
+              <img src={`${iconUrl}${data.weather[0].icon}.png`} alt="icon" />
+              <div className="forecast-temp">
+                <p>{data.weather[0].description}</p>
+                <p>{CelsiusToFahrenheit(data.main.temp, tempUnit)}</p>
+              </div>
             </div>
-          </div>
-        ))
+          </Link>
+        </div>
+      ) : (
+        <p>Add Favorite</p>
       )}
     </>
   );

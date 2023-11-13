@@ -9,7 +9,6 @@ import AutocompleteSuggestions from "../autocomplete/AutoComplete";
 const SearchBox = () => {
   const dispatch = useDispatch();
   const textValue = useSelector((state) => state.search.cityName);
-  // console.log(textValue);
 
   const handleSearch = () => {
     if (textValue) {
@@ -53,12 +52,10 @@ const SearchBox = () => {
 
       <div>
         {textValue && (
-          <div>
-            <AutocompleteSuggestions
-              query={textValue}
-              onSelect={handleSelectSuggestion}
-            />
-          </div>
+          <AutocompleteSuggestions
+            query={textValue}
+            onSelect={handleSelectSuggestion}
+          />
         )}
       </div>
     </>

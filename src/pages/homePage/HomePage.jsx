@@ -7,9 +7,9 @@ const HomePage = () => {
   return (
     <div className="home-container">
       <div className="home-wrapper">
-        <div>
+        <section>
           <SearchBox />
-        </div>
+        </section>
         <section className="card-wrapper">
           <CityWeather />
         </section>

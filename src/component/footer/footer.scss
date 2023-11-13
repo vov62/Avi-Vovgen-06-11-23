@@ -1,0 +1,12 @@
+.footer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #333;
+  height: 50px;
+  color: var(--text-gray);
+  h5 {
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+}

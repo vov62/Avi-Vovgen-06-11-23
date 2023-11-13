@@ -7,6 +7,7 @@ const initialState = {
   favorites: [],
   tempUnit: "celsius",
   error: "",
+  currentCity: null,
 };
 
 const dataSlice = createSlice({
@@ -24,23 +25,30 @@ const dataSlice = createSlice({
         ...state,
         isLoading: false,
         data: action.payload.cityData,
-        forecastData: action.payload.forecastData,
+        forecastData: action.payload.cityForecast,
+      };
+    },
+    ADD_FAVORITE: (state, action) => {
+      return {
+        ...state,
+        favorites: [...state.favorites, { ...action.payload }],
+      };
+    },
+    REMOVE_FAVORITE: (state, action) => {
+      return {
+        ...state,
+        favorites: state.favorites.filter((f) => {
+          f.id !== action.payload.id;
+        }),
       };
     },
     FORECAST_DATA_FETCH_SUCCEED: (state, action) => {
       return { ...state, forecastData: action.payload };
     },
+    SET_CURRENT_CITY: (state, action) => {
+      state.data = action.payload;
+    },
 
-    ADD_TO_FAVORITES: (state, action) => {
-      state.favorites.push(action.payload);
-      localStorage.setItem("favorites", JSON.stringify(state.favorites));
-    },
-    REMOVE_FROM_FAVORITES: (state, action) => {
-      state.favorites = state.favorites.filter(
-        (city) => city.id !== action.payload.id
-      );
-      localStorage.setItem("favorites", JSON.stringify(state.favorites));
-    },
     TOGGLE_TEMP_UNIT: (state) => {
       state.tempUnit = state.tempUnit === "celsius" ? "fahrenheit" : "celsius";
     },
@@ -52,9 +60,10 @@ export const {
   DATA_FETCH_FAILED,
   DATA_FETCH_SUCCEED,
   FORECAST_DATA_FETCH_SUCCEED,
-  ADD_TO_FAVORITES,
-  REMOVE_FROM_FAVORITES,
+  SET_CURRENT_CITY,
   TOGGLE_TEMP_UNIT,
+  ADD_FAVORITE,
+  REMOVE_FAVORITE,
 } = dataSlice.actions;
 
 export const { actions, reducer } = dataSlice;

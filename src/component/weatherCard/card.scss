@@ -19,7 +19,7 @@
       .card--top-city-name {
         font-weight: 600;
         font-size: 20px;
-        color: #fff;
+        color: var(--body-text);
         letter-spacing: 1px;
         text-transform: capitalize;
       }
@@ -44,7 +44,7 @@
     gap: 20px;
 
     h2 {
-      color: #fff !important;
+      color: var(--body-text) !important;
       font-weight: 600px;
       font-size: 70px;
       width: auto;
@@ -54,7 +54,7 @@
 
     .card-bottom-city-details {
       h4 {
-        color: #fff;
+        color: var(--body-text);
         font-weight: 600;
       }
 
@@ -63,6 +63,10 @@
         grid-template-columns: repeat(2, 1fr);
         grid-column-gap: 30px;
         grid-row-gap: 1px;
+
+        span {
+          color: var(--text-gray);
+        }
       }
     }
   }

@@ -1,15 +1,17 @@
 .autocomplete-container {
+  position: absolute;
   margin-top: 5px;
+  width: 305px;
+
   ul {
     border-radius: 5px;
-
     padding: 10px;
-    background-color: #fff;
+    background-color: var(--bg-text-color);
     text-align: center;
 
     li {
       width: 100%;
-      color: var(--text-gray);
+      color: var(--text-black);
       padding: 10px 15px;
       cursor: pointer;
 

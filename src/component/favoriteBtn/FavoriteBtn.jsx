@@ -1,24 +1,19 @@
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  ADD_TO_FAVORITES,
-  REMOVE_FROM_FAVORITES,
-} from "../../feature/fetchDataSlice";
+import { ADD_FAVORITE, REMOVE_FAVORITE } from "../../feature/fetchDataSlice.js";
 import { toast } from "react-toastify";
 import "./favoriteBtn.scss";
 
-const FavoriteBtn = ({ city }) => {
-  // const { data, favorites } = useSelector((state) => state.data);
+const FavoriteBtn = () => {
   const { data, favorites } = useSelector((state) => state.data);
-
   const dispatch = useDispatch();
 
   const handleFavorite = () => {
-    dispatch(ADD_TO_FAVORITES(city));
+    dispatch(ADD_FAVORITE(data));
 
     toast.success("city add successfully!", {
       position: "top-right",
-      autoClose: 3000,
+      autoClose: 2000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -26,11 +21,12 @@ const FavoriteBtn = ({ city }) => {
       theme: "dark",
     });
   };
-  const handleRemove = () => {
-    dispatch(REMOVE_FROM_FAVORITES(city));
+
+  const removeFavorite = () => {
+    dispatch(REMOVE_FAVORITE(data.id));
     toast.error("remove done successfully!", {
       position: "top-right",
-      autoClose: 3000,
+      autoClose: 2000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -41,9 +37,9 @@ const FavoriteBtn = ({ city }) => {
 
   return (
     <div className="card-btn">
-      {favorites.some((item) => item.id === data.id) ? (
-        <button className="remove-btn" onClick={handleRemove}>
-          <FavoriteBorderOutlinedIcon className="remove_icon" />
+      {favorites.some((city) => city.id === data.id) ? (
+        <button className="remove-btn" onClick={removeFavorite}>
+          <FavoriteBorderOutlinedIcon />
           remove from favorites
         </button>
       ) : (

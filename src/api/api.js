@@ -9,7 +9,9 @@ const fetchCityData = async (city) => {
         import.meta.env.VITE_WEATHER_API_KEY
       }&units=metric`
     );
-
+    if (cityDataRes.status !== 200) {
+      throw new Error("Failed to fetch city weather");
+    }
     const { lat, lon } = cityDataRes.data.coord;
 
     const forecastDataRes = await axios.get(
@@ -18,9 +20,14 @@ const fetchCityData = async (city) => {
       }&units=metric`
     );
 
-    return { cityData: cityDataRes?.data, forecastData: forecastDataRes?.data };
+    if (forecastDataRes.status !== 200) {
+      throw new Error("Failed to fetch forecast weather");
+    }
+    const cityData = await cityDataRes.data;
+    const cityForecast = await forecastDataRes.data;
+    return { cityData, cityForecast };
   } catch (error) {
-    return error;
+    return error.message;
   }
 };
 

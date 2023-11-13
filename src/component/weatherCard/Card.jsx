@@ -4,6 +4,9 @@ import "./card.scss";
 
 const Card = () => {
   const cityData = useSelector((state) => state.data.data);
+  // console.log(city);
+
+  // const currentCity = useSelector((state) => state.search.currentCity);
   const tempUnit = useSelector((state) => state.data.tempUnit);
 
   const { name, weather, main, wind, sys } = cityData;

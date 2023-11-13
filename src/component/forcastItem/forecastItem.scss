@@ -1,4 +1,5 @@
 .forecast-card {
+  display: block;
   border: 1px solid #eee;
   width: 190px;
   border-radius: 10px;
@@ -12,6 +13,7 @@
     align-items: center;
     gap: 8px;
     text-align: center;
+    color: var(--text-gray);
 
     .forecast-card-day {
       background-color: #3c3c44;
@@ -19,13 +21,18 @@
       text-align: center;
       padding: 5px 25px;
       h3 {
-        color: #fff;
+        color: var(--body-text);
         font-weight: 400;
       }
     }
 
+    h4 {
+      font-size: 22px;
+      color: var(--body-text);
+    }
+
     h2 {
-      color: lightgrey !important;
+      color: var(--text-gray) !important;
       font-weight: 700;
       font-size: 16px;
     }
