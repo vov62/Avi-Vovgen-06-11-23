@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { DATA_FETCH_FAILED } from "../../../redux/feature/fetchDataSlice";
 import axios from "axios";
-import Spinner from "../../Spinner";
 import "./autocomplete.scss";
 
 const AutocompleteSuggestions = ({ query, onSelect }) => {
@@ -26,23 +25,24 @@ const AutocompleteSuggestions = ({ query, onSelect }) => {
     const fetchSuggestions = async () => {
       try {
         const response = await axios.get(
-          `http://dataservice.accuweather.com/locations/v1/cities/autocomplete`,
+          `https://dataservice.accuweather.com/locations/v1/cities/autocomplete`,
           {
             params: {
-              apikey: `${import.meta.env.VITE_AUTOCOM_API_KEY}`,
+              apikey: `${import.meta.env.VITE_WEATHER_API_KEY}`,
               q: query,
             },
           }
         );
 
-        setSuggestions(response.data);
+        const resData = await response.data;
+        setSuggestions(resData);
       } catch (error) {
         dispatch(DATA_FETCH_FAILED(error.message));
         setSuggestions(null);
       }
     };
 
-    const debouncedFetchSuggestions = debounce(fetchSuggestions, 500);
+    const debouncedFetchSuggestions = debounce(fetchSuggestions, 1000);
 
     if (query.trim() !== "") {
       debouncedFetchSuggestions();
@@ -65,22 +65,12 @@ const AutocompleteSuggestions = ({ query, onSelect }) => {
         </ul>
       ) : (
         <>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <Spinner size={30} />
-          </div>
+          {!suggestions && error && (
+            <p className="autocomplete-container-error">
+              No matching cities found
+            </p>
+          )}
         </>
-      )}
-
-      {!suggestions && error && (
-        <p className="autocomplete-container-error">
-          No matching cities found, add another city or refresh the page
-        </p>
       )}
     </div>
   );

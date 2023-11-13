@@ -23,11 +23,13 @@ const fetchCityData = async (city) => {
     if (forecastDataRes.status !== 200) {
       throw new Error("Failed to fetch forecast weather");
     }
+
     const cityData = await cityDataRes.data;
     const cityForecast = await forecastDataRes.data;
+
     return { cityData, cityForecast };
   } catch (error) {
-    return error.message;
+    return { error: error.message };
   }
 };
 

@@ -17,18 +17,20 @@ const SearchBox = () => {
   const handleSearch = () => {
     if (textValue) {
       const englishPattern = /^[A-Za-z\s]+$/;
-      englishPattern.test(textValue)
-        ? dispatch(DATA_FETCH_REQUESTED(textValue))
-        : toast.error("Please enter only English characters", {
-            position: "top-center",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            progress: undefined,
-            theme: "dark",
-            msTransition: "bounce",
-          });
+      if (englishPattern.test(textValue)) {
+        dispatch(DATA_FETCH_REQUESTED(textValue));
+      } else {
+        toast.error("Please enter only English characters", {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          progress: undefined,
+          theme: "dark",
+          msTransition: "bounce",
+        });
+      }
       dispatch(RESET_SEARCH());
     }
   };

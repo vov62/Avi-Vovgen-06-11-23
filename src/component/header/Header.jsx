@@ -13,7 +13,7 @@ import "./header.scss";
 
 const Header = () => {
   const { data, favorites } = useSelector((state) => state.data);
-  const { tempUnit } = data;
+  const { tempUnit } = data || {};
   const darkMode = useSelector((state) => state.theme.darkMode);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const dispatch = useDispatch();

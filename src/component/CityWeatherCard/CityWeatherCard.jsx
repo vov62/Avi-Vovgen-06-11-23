@@ -2,9 +2,10 @@ import { useSelector } from "react-redux";
 import { CelsiusToFahrenheit } from "../../util/util";
 import "./cityWeatherCard.scss";
 
-const Card = () => {
+const CityWeatherCard = () => {
   const cityData = useSelector((state) => state.data.data);
   const tempUnit = useSelector((state) => state.data.tempUnit);
+
   const { name, weather, main, wind, sys } = cityData;
   const iconUrl = `https://openweathermap.org/img/w/${weather[0].icon}.png`;
 
@@ -45,4 +46,4 @@ const Card = () => {
   );
 };
 
-export default Card;
+export default CityWeatherCard;
