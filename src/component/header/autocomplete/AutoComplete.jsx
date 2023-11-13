@@ -28,7 +28,7 @@ const AutocompleteSuggestions = ({ query, onSelect }) => {
           `https://dataservice.accuweather.com/locations/v1/cities/autocomplete`,
           {
             params: {
-              apikey: `${import.meta.env.VITE_WEATHER_API_KEY}`,
+              apikey: `${import.meta.env.VITE_NEW_API_KEY}`,
               q: query,
             },
           }
