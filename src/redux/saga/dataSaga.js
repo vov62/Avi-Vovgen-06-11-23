@@ -3,7 +3,7 @@ import {
   DATA_FETCH_REQUESTED,
   DATA_FETCH_FAILED,
   DATA_FETCH_SUCCEED,
-} from "../../feature/fetchDataSlice";
+} from "../../redux/feature/fetchDataSlice";
 import fetchCityData from "../../api/api";
 
 function* fetchData(actions) {

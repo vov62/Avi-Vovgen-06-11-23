@@ -39,11 +39,21 @@
   }
 }
 
+.Toastify__toast.Toastify__toast-theme--dark.Toastify__toast--close-on-click.custom-toast {
+  margin-top: 30px;
+}
+
 @media only screen and (max-width: 600px) {
   .card-btn {
     .add-to-fav-btn,
     button.remove-btn {
       font-size: 16px;
     }
+  }
+
+  .Toastify__toast.Toastify__toast-theme--dark.Toastify__toast--close-on-click.custom-toast {
+    position: absolute;
+    top: 20px;
+    right: 40px;
   }
 }

@@ -1,8 +1,6 @@
 import "./forecastList.scss";
 import ForecastItem from "../forcastItem/ForecastItem";
 import { useSelector } from "react-redux";
-// import { useEffect } from "react";
-// import forcecast from "../../../forecast.json";
 
 const ForecastLIst = () => {
   const forecastDataTwo = useSelector((state) => state.data.forecastData);

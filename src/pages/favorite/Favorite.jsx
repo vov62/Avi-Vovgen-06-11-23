@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import FavoriteCard from "./FavoriteCard";
 import { useDispatch, useSelector } from "react-redux";
-import { SET_CURRENT_CITY } from "../../feature/fetchDataSlice.js";
+import { SET_CURRENT_CITY } from "../../redux/feature/fetchDataSlice.js";
 import "./favorite.scss";
 
 const Favorite = () => {

@@ -1,14 +1,13 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import "./autocomplete.scss";
-import { DATA_FETCH_FAILED } from "../../../feature/fetchDataSlice";
+import { DATA_FETCH_FAILED } from "../../../redux/feature/fetchDataSlice";
+import axios from "axios";
 import Spinner from "../../Spinner";
+import "./autocomplete.scss";
 
 const AutocompleteSuggestions = ({ query, onSelect }) => {
   const [suggestions, setSuggestions] = useState([]);
   const error = useSelector((state) => state.data.error);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -38,8 +37,7 @@ const AutocompleteSuggestions = ({ query, onSelect }) => {
 
         setSuggestions(response.data);
       } catch (error) {
-        // console.error("Error fetching suggestions:", error);
-        dispatch(DATA_FETCH_FAILED(error));
+        dispatch(DATA_FETCH_FAILED(error.message));
         setSuggestions(null);
       }
     };
@@ -81,7 +79,7 @@ const AutocompleteSuggestions = ({ query, onSelect }) => {
 
       {!suggestions && error && (
         <p className="autocomplete-container-error">
-          No matching cities found, try another city
+          No matching cities found, add another city or refresh the page
         </p>
       )}
     </div>

@@ -1,14 +1,10 @@
 import { useSelector } from "react-redux";
 import { CelsiusToFahrenheit } from "../../util/util";
-import "./card.scss";
+import "./cityWeatherCard.scss";
 
 const Card = () => {
   const cityData = useSelector((state) => state.data.data);
-  // console.log(city);
-
-  // const currentCity = useSelector((state) => state.search.currentCity);
   const tempUnit = useSelector((state) => state.data.tempUnit);
-
   const { name, weather, main, wind, sys } = cityData;
   const iconUrl = `http://openweathermap.org/img/w/${weather[0].icon}.png`;
 
@@ -20,7 +16,12 @@ const Card = () => {
             {name}, {sys.country}
           </p>
           <p className="card-city-weather-desc">{weather[0].description}</p>
-          <p className="card-city-weather-desc">10:00PM</p>
+          <p className="card-city-weather-desc">
+            {new Date().toLocaleTimeString("en-US", {
+              hour: "2-digit",
+              minute: "2-digit",
+            })}
+          </p>
         </div>
         <img src={iconUrl} alt="sun" className="card-weather-icon" />
       </div>

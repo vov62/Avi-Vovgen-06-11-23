@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
-import "./cityWeather.scss";
-import Card from "../weatherCard/Card";
-import FavoriteBtn from "../favoriteBtn/FavoriteBtn";
-import Spinner from "../Spinner";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import CityWeatherCard from "../CityWeatherCard/CityWeatherCard";
+import FavoriteBtn from "../favoriteBtn/FavoriteBtn";
+import Spinner from "../Spinner";
+import "./cityWeather.scss";
 
 const CityWeather = () => {
   const { data } = useSelector((state) => state.data);
@@ -21,8 +21,8 @@ const CityWeather = () => {
         <Spinner />
       ) : (
         <>
-          <Card city={city} />
-          <FavoriteBtn city={updatedData} />
+          <CityWeatherCard />
+          <FavoriteBtn />
         </>
       )}
     </>

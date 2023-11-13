@@ -34,12 +34,11 @@ const dataSlice = createSlice({
         favorites: [...state.favorites, { ...action.payload }],
       };
     },
+
     REMOVE_FAVORITE: (state, action) => {
       return {
         ...state,
-        favorites: state.favorites.filter((f) => {
-          f.id !== action.payload.id;
-        }),
+        favorites: state.favorites.filter((f) => f.id !== action.payload),
       };
     },
     FORECAST_DATA_FETCH_SUCCEED: (state, action) => {

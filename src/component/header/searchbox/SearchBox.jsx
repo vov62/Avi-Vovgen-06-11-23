@@ -1,10 +1,14 @@
-import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
-import "./searchBox.scss";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { DATA_FETCH_REQUESTED } from "../../../feature/fetchDataSlice";
-import { UPDATE_SEARCH, RESET_SEARCH } from "../../../feature/searchSlice";
+import { DATA_FETCH_REQUESTED } from "../../../redux/feature/fetchDataSlice";
+import {
+  UPDATE_SEARCH,
+  RESET_SEARCH,
+} from "../../../redux/feature/searchSlice";
 import AutocompleteSuggestions from "../autocomplete/AutoComplete";
+import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+import { toast } from "react-toastify";
+import "./searchBox.scss";
 
 const SearchBox = () => {
   const dispatch = useDispatch();
@@ -15,9 +19,18 @@ const SearchBox = () => {
       const englishPattern = /^[A-Za-z\s]+$/;
       englishPattern.test(textValue)
         ? dispatch(DATA_FETCH_REQUESTED(textValue))
-        : alert("Please enter only English characters");
+        : toast.error("Please enter only English characters", {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            progress: undefined,
+            theme: "dark",
+            msTransition: "bounce",
+          });
+      dispatch(RESET_SEARCH());
     }
-    dispatch(RESET_SEARCH());
   };
 
   const handleSelectSuggestion = (suggestion) => {

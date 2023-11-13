@@ -1,6 +1,6 @@
-import { reducer as dataReducer } from "../feature/fetchDataSlice";
-import { reducer as searchReducer } from "../feature/searchSlice";
-import { reducer as themeReducer } from "../feature/themeSlice";
+import { reducer as dataReducer } from "../redux/feature/fetchDataSlice";
+import { reducer as searchReducer } from "../redux/feature/searchSlice";
+import { reducer as themeReducer } from "../redux/feature/themeSlice";
 
 const rootReducers = {
   data: dataReducer,

@@ -1,6 +1,9 @@
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import { useDispatch, useSelector } from "react-redux";
-import { ADD_FAVORITE, REMOVE_FAVORITE } from "../../feature/fetchDataSlice.js";
+import {
+  ADD_FAVORITE,
+  REMOVE_FAVORITE,
+} from "../../redux/feature/fetchDataSlice.js";
 import { toast } from "react-toastify";
 import "./favoriteBtn.scss";
 
@@ -19,6 +22,8 @@ const FavoriteBtn = () => {
       pauseOnHover: true,
       progress: undefined,
       theme: "dark",
+      msTransition: "bounce",
+      className: "custom-toast",
     });
   };
 
@@ -32,6 +37,8 @@ const FavoriteBtn = () => {
       pauseOnHover: true,
       progress: undefined,
       theme: "dark",
+      msTransition: "bounce",
+      className: "custom-toast",
     });
   };
 

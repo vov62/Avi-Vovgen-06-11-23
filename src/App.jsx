@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
-import "./App.css";
 import Header from "./component/header/Header";
 import Favorite from "./pages/favorite/Favorite";
 import HomePage from "./pages/homePage/HomePage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Footer from "./component/footer/Footer";
+import "./App.css";
 
 function App() {
   const darkMode = useSelector((state) => state.theme.darkMode);

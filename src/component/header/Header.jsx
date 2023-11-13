@@ -7,8 +7,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import LightModeTwoToneIcon from "@mui/icons-material/LightModeTwoTone";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
-import { TOGGLE_TEMP_UNIT } from "../../feature/fetchDataSlice";
-import { TOGGLE_THEME } from "../../feature/themeSlice";
+import { TOGGLE_TEMP_UNIT } from "../../redux/feature/fetchDataSlice";
+import { TOGGLE_THEME } from "../../redux/feature/themeSlice";
 import "./header.scss";
 
 const Header = () => {
