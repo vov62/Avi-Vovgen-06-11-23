@@ -6,7 +6,7 @@ const ForecastItem = ({ item, forecastDays }) => {
   const tempUnit = useSelector((state) => state.data.tempUnit);
   const { main, weather } = item;
   const iconUrl =
-    `http://openweathermap.org/img/w/${weather[0]?.icon}.png` ||
+    `https://openweathermap.org/img/w/${weather[0]?.icon}.png` ||
     "default-icon.png";
 
   return (
@@ -16,7 +16,7 @@ const ForecastItem = ({ item, forecastDays }) => {
           <div className="forecast-card-day">
             <h3>{forecastDays}</h3>
           </div>
-          <img src={iconUrl} alt="icon" />
+          <img src={iconUrl} alt="Weather Icon" />
           <h4>{CelsiusToFahrenheit(main.temp, tempUnit)}</h4>
           <div className="forecast-temp">
             <h2>{weather[0].description}</h2>

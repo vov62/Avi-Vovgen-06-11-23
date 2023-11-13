@@ -42,7 +42,7 @@ const AutocompleteSuggestions = ({ query, onSelect }) => {
       }
     };
 
-    const debouncedFetchSuggestions = debounce(fetchSuggestions, 1000);
+    const debouncedFetchSuggestions = debounce(fetchSuggestions, 500);
 
     if (query.trim() !== "") {
       debouncedFetchSuggestions();

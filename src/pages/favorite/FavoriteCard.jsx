@@ -4,7 +4,7 @@ import { CelsiusToFahrenheit } from "../../util/util";
 
 const FavoriteCard = ({ data }) => {
   const tempUnit = useSelector((state) => state.data.tempUnit);
-  const iconUrl = `http://openweathermap.org/img/w/`;
+  const iconUrl = `https://openweathermap.org/img/w/`;
 
   return (
     <>
@@ -13,7 +13,10 @@ const FavoriteCard = ({ data }) => {
           <Link className="forecast-card">
             <div className="forecast-card-desc">
               <div className="forecast-card-day">{data.name}</div>
-              <img src={`${iconUrl}${data.weather[0].icon}.png`} alt="icon" />
+              <img
+                src={`${iconUrl}${data.weather[0].icon}.png`}
+                alt="Weather Icon"
+              />
               <div className="forecast-temp">
                 <p>{data.weather[0].description}</p>
                 <p>{CelsiusToFahrenheit(data.main.temp, tempUnit)}</p>

@@ -6,7 +6,7 @@ const Card = () => {
   const cityData = useSelector((state) => state.data.data);
   const tempUnit = useSelector((state) => state.data.tempUnit);
   const { name, weather, main, wind, sys } = cityData;
-  const iconUrl = `http://openweathermap.org/img/w/${weather[0].icon}.png`;
+  const iconUrl = `https://openweathermap.org/img/w/${weather[0].icon}.png`;
 
   return (
     <div className="card">
@@ -23,7 +23,7 @@ const Card = () => {
             })}
           </p>
         </div>
-        <img src={iconUrl} alt="sun" className="card-weather-icon" />
+        <img src={iconUrl} alt="Weather Icon" className="card-weather-icon" />
       </div>
       <div className="card-bottom">
         <h2>{CelsiusToFahrenheit(main.temp, tempUnit)}</h2>
