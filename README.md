@@ -7,7 +7,7 @@ Live: https://weather-app-avivovgen.netlify.app/
 </br>
 <h2>Stack 📚</h2>
 :white_medium_small_square: React Vite
-:white_medium_small_square: React=Redux Redux-Saga
+:white_medium_small_square: React-Redux Redux-Saga
 :white_medium_small_square: React-Router-Dom
 :white_medium_small_square: Scss
 :white_medium_small_square: OpenWeatherMap API
