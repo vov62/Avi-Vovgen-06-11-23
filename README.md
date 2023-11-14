@@ -7,6 +7,7 @@ Live: https://weather-app-avivovgen.netlify.app/
 </br>
 <h2>Stack 📚</h2>
 :white_medium_small_square: React Vite
+:white_medium_small_square: React=Redux Redux-Saga
 :white_medium_small_square: React-Router-Dom
 :white_medium_small_square: Scss
 :white_medium_small_square: OpenWeatherMap API
@@ -17,3 +18,33 @@ run 'npm run dev' to run the project  :grinning:
 </br>
 </br>
 </br>
+
+
+<img width="600" alt="home" src="https://github.com/vov62/frontend-vinylstore-project/assets/71568364/9a3e2db8-4244-445e-848c-468cf4e0705f">
+</br>
+</br>
+<img width="203" alt="mobile" src="https://github.com/vov62/frontend-vinylstore-project/assets/71568364/949c94a8-4fc8-45b0-88c6-094904dd2ccf">
+</br>
+</br>
+<img width="600" alt="forecast" src="https://github.com/vov62/frontend-vinylstore-project/assets/71568364/24eafcb1-37ce-4051-91a9-33f294c02573">
+</br>
+</br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
